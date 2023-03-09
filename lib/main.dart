@@ -1,42 +1,74 @@
 import 'package:flutter/material.dart';
+
 void main() {
   runApp(MaterialApp(
     home: HomePage(),
-    theme: ThemeData(
-      primarySwatch: Colors.pink,
-    ),
   ));
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String text = 'Olá, Mundo!';
+
+  void changeText() {
+    setState(() {
+      if (text == 'Olá, Mundo!') {
+        text = ':)';
+      } else {
+        text = 'Olá, Mundo!';
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter App"),
-      ),
-      backgroundColor: Colors.pink[50],
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          alignment: Alignment.center,
-          width: 200,
-          height: 100,
-          decoration: BoxDecoration(
-            color: Colors.pink[100],
-            border: Border.all(color: Colors.pink),
-            borderRadius: BorderRadius.circular(100),
-            boxShadow: [BoxShadow(color: Colors.pink, blurRadius: 5)]
-          ),
-          child: Text(
-            "Hello, World!",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.pink[900],
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Calibri',
-            ),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Meu Primeiro App'),
+          backgroundColor: Colors.pink,
+        ),
+        backgroundColor: Colors.pink[50],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                  padding: const EdgeInsets.all(8),
+                  alignment: Alignment.center,
+                  width: 200,
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.pink[100],
+                      border: Border.all(color: Colors.pink),
+                      borderRadius: BorderRadius.circular(100),
+                      boxShadow: [
+                        const BoxShadow(color: Colors.pink, blurRadius: 5)
+                      ]),
+                  child: Text(text,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink[900],
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Calibri',
+                      ))),
+              SizedBox(height: 16),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.pink),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                ),
+                onPressed: changeText,
+                child: Text('Olá'),
+              ),
+            ],
           ),
         ),
       ),
