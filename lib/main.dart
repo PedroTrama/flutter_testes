@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-void main(){
-  //WidgetsApp //MaterialApp //CupertionApp
+void main() {
   runApp(MaterialApp(
     home: HomePage(),
     theme: ThemeData(
@@ -15,10 +14,32 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter App"),
-       ),
-       body: Container(
-        child: Text("Hello, World!"),
-       ),
+      ),
+      backgroundColor: Colors.pink[50],
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(8),
+          alignment: Alignment.center,
+          width: 200,
+          height: 100,
+          decoration: BoxDecoration(
+            color: Colors.pink[100],
+            border: Border.all(color: Colors.pink),
+            borderRadius: BorderRadius.circular(100),
+            boxShadow: [BoxShadow(color: Colors.pink, blurRadius: 5)]
+          ),
+          child: Text(
+            "Hello, World!",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.pink[900],
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Calibri',
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
