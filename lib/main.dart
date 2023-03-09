@@ -13,13 +13,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String text = 'Olá, Mundo!';
+  int counter = 0;
 
   void changeText() {
     setState(() {
       if (text == 'Olá, Mundo!') {
         text = ':)';
+        counter++;
       } else {
         text = 'Olá, Mundo!';
+        counter++;
       }
     });
   }
@@ -56,7 +59,8 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.pink[900],
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Calibri',
-                      ))),
+                      )),
+                      ),
               SizedBox(height: 16),
               ElevatedButton(
                 style: ButtonStyle(
@@ -68,6 +72,14 @@ class _HomePageState extends State<HomePage> {
                 onPressed: changeText,
                 child: Text('Olá'),
               ),
+              Text(counter.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink[900],
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Calibri',
+                      ))
             ],
           ),
         ),
@@ -75,3 +87,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+                 
