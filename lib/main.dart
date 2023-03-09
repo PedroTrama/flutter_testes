@@ -41,26 +41,26 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                  padding: const EdgeInsets.all(8),
-                  alignment: Alignment.center,
-                  width: 200,
-                  height: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.pink[100],
-                      border: Border.all(color: Colors.pink),
-                      borderRadius: BorderRadius.circular(100),
-                      boxShadow: [
-                        const BoxShadow(color: Colors.pink, blurRadius: 5)
-                      ]),
-                  child: Text(text,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.pink[900],
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Calibri',
-                      )),
-                      ),
+                padding: const EdgeInsets.all(8),
+                alignment: Alignment.center,
+                width: 200,
+                height: 100,
+                decoration: BoxDecoration(
+                    color: Colors.pink[100],
+                    border: Border.all(color: Colors.pink),
+                    borderRadius: BorderRadius.circular(100),
+                    boxShadow: [
+                      const BoxShadow(color: Colors.pink, blurRadius: 5)
+                    ]),
+                child: Text(text,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.pink[900],
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Calibri',
+                    )),
+              ),
               SizedBox(height: 16),
               ElevatedButton(
                 style: ButtonStyle(
@@ -73,13 +73,13 @@ class _HomePageState extends State<HomePage> {
                 child: Text('Olá'),
               ),
               Text(counter.toString(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.pink[900],
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Calibri',
-                      ))
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.pink[900],
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Calibri',
+                  ))
             ],
           ),
         ),
@@ -87,6 +87,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-                 
