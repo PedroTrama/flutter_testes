@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: HomePage(),
   ));
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -27,12 +30,18 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void reset() {
+    setState(() {
+      counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Meu Primeiro App'),
+          title: const Text('Meu Primeiro App'),
           backgroundColor: Colors.pink,
         ),
         backgroundColor: Colors.pink[50],
@@ -49,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.pink[100],
                     border: Border.all(color: Colors.pink),
                     borderRadius: BorderRadius.circular(100),
+                    // ignore: prefer_const_literals_to_create_immutables
                     boxShadow: [
                       const BoxShadow(color: Colors.pink, blurRadius: 5)
                     ]),
@@ -61,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                       fontFamily: 'Calibri',
                     )),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor:
@@ -70,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                       MaterialStateProperty.all<Color>(Colors.white),
                 ),
                 onPressed: changeText,
-                child: Text('Olá'),
+                child: const Text('Olá'),
               ),
               Text(counter.toString(),
                   textAlign: TextAlign.center,
@@ -79,7 +89,30 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.pink[900],
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Calibri',
-                  ))
+                  )),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100.0),
+                    ),
+                  ),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.pink),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                ),
+                onPressed: reset,
+                child: const Text('Resetar'),
+              ),
+              const SizedBox(height: 100),
+                FloatingActionButton(
+                  onPressed: () {},
+                  backgroundColor: Colors.pink,
+                  hoverColor: Colors.pink[900],
+                  child: const Icon(Icons.account_circle_rounded),
+                ),
             ],
           ),
         ),
